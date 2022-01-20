@@ -1,6 +1,8 @@
 # dependencies
 /node_modules
 /.idea
+/.husky
+/dist
 
 # misc
 .env.local

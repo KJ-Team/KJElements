@@ -8,6 +8,7 @@ import svgr from '@svgr/rollup';
 
 import pkg from './package.json';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   input: 'src/index.tsx',
   output: [
@@ -36,6 +37,7 @@ export default {
     svgr(),
     resolve(),
     typescript({
+      exclude: ['src/**/*.test.(tsx|ts)'],
       rollupCommonJSResolveHack: true,
       clean: true,
     }),
