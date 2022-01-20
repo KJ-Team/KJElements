@@ -1,0 +1,1 @@
+{"version":3,"sources":["KJButton.css","main.css"],"names":[],"mappings":"AAAA,UACI,kBAAyB,CACzB,UACJ,CCHA,UAEI,sBAAuB,CAEvB,QAAS,CADT,SAEJ","file":"index.es.css","sourcesContent":[".KJButton {\r\n    background: palevioletred;\r\n    color: #333;\r\n}","body,\r\nhtml {\r\n    box-sizing: content-box;\r\n    padding: 0;\r\n    margin: 0;\r\n}"]}
