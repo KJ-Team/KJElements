@@ -1,46 +1,33 @@
-import typescript from 'rollup-plugin-typescript2';
-import commonjs from '@rollup/plugin-commonjs';
-import external from 'rollup-plugin-peer-deps-external';
-import postcss from 'rollup-plugin-postcss';
+import packageJson from './package.json' assert { type: 'json' };
 import resolve from '@rollup/plugin-node-resolve';
-import url from '@rollup/plugin-url';
-import svgr from '@svgr/rollup';
+import typescript from '@rollup/plugin-typescript';
+import commonjs from '@rollup/plugin-commonjs';
+import dts from 'rollup-plugin-dts';
 
-import pkg from './package.json';
-
-// eslint-disable-next-line import/no-anonymous-default-export
-export default {
-  input: 'src/index.tsx',
-  output: [
-    {
-      file: pkg.main,
-      format: 'cjs',
-      exports: 'named',
-      sourcemap: true,
-    },
-    {
-      file: pkg.module,
-      format: 'es',
-      exports: 'named',
-      sourcemap: true,
-    },
-  ],
-  plugins: [
-    external,
-    postcss({
-      modules: false,
-      extract: true,
-      minimize: true,
-      sourceMap: true,
-    }),
-    url(),
-    svgr(),
-    resolve(),
-    typescript({
-      exclude: ['src/**/*.test.(tsx|ts)'],
-      rollupCommonJSResolveHack: true,
-      clean: true,
-    }),
-    commonjs(),
-  ],
-};
+export default [
+  {
+    input: 'src/index.ts',
+    output: [
+      {
+        file: packageJson.main,
+        format: 'cjs',
+        sourcemap: true,
+      },
+      {
+        file: packageJson.module,
+        format: "esm",
+        sourcemap: true,
+      }
+    ],
+    plugins: [
+      typescript({ tsconfig: './tsconfig.json' }),
+      commonjs(),
+      resolve(),
+    ],
+  },
+  {
+    input: 'dist/esm/types/index.d.ts',
+    output: [{ file: 'dist/index.d.ts', format: 'esm' }],
+    plugins: [dts()],
+  }
+];

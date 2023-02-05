@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
-import './KJButton.css';
 
-interface KJButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+interface KJButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactElement,
+}
 
 const KJButton: FC<KJButtonProps> = ({ children, ...props }) => {
   return (
