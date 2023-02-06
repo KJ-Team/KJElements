@@ -1,8 +1,10 @@
 import packageJson from './package.json' assert { type: 'json' };
+import peerDependencies from 'rollup-plugin-peer-deps-external';
 import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import commonjs from '@rollup/plugin-commonjs';
 import postcss from 'rollup-plugin-postcss';
+
 import dts from 'rollup-plugin-dts';
 
 export default [
@@ -22,6 +24,7 @@ export default [
     ],
     plugins: [
       typescript({ tsconfig: './tsconfig.json' }),
+      peerDependencies(),
       postcss(),
       commonjs(),
       resolve(),

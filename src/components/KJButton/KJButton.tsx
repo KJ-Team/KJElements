@@ -1,14 +1,19 @@
-import React, { FC } from 'react';
-import './KJButton.module.css';
+import React from 'react';
+import './KJButton.css';
 
-interface KJButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  children: React.ReactElement | string,
+export interface KJButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  size?: 'small' | 'medium' | 'large',
+  onClick?: () => void,
+  label?: string,
 }
 
-const KJButton: FC<KJButtonProps> = ({ children, ...props }) => {
+const KJButton = ({ label, size = 'medium', ...props }: KJButtonProps) => {
   return (
-    <button className='KJButton' {...props}>
-      {children}
+    <button
+      className={['KJButton', `KJButton__${size}`].join(' ')}
+      {...props}
+    >
+      {label}
     </button>
   );
 };

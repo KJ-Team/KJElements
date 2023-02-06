@@ -1,0 +1,20 @@
+.KJButton {
+  font-weight: 700;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+}
+
+.KJButton__small {
+  font-size: 12px;
+  padding: 10px 16px;
+}
+.KJButton__medium {
+  font-size: 14px;
+  padding: 11px 20px;
+}
+.KJButton__large {
+  font-size: 16px;
+  padding: 12px 24px;
+}
