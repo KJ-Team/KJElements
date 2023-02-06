@@ -1,10 +1,13 @@
 {
-  "name": "kj-elements",
-  "version": "0.1.0",
+  "name": "@kj-team/kj-elements",
+  "version": "0.1.1",
   "description": "Elements library on React from KJTeam for you",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/KJ-Team/KJElements.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/kj-team"
   },
   "keywords": [
     "javascript",
@@ -38,6 +41,7 @@
     "react": "^18.2.0",
     "rollup": "^3.14.0",
     "rollup-plugin-dts": "^5.1.1",
+    "rollup-plugin-postcss": "^4.0.2",
     "tslib": "^2.5.0",
     "typescript": "^4.9.5"
   }
