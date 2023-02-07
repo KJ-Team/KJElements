@@ -7,11 +7,13 @@ export default {
   component: KJButton,
 } as ComponentMeta<typeof KJButton>;
 
-const Template: ComponentStory<typeof KJButton> = (args) => <KJButton {...args} />;
+const Template: ComponentStory<typeof KJButton> = (args) => (
+  <KJButton {...args} />
+);
 
 export const HelloWorld = Template.bind({});
 HelloWorld.args = {
-  label: "Hello world!",
+  label: 'Hello world!',
 };
 
 export const LargeButton = Template.bind({});
